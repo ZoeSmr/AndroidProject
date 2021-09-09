@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:text="zhang"-->
+<!--        android:textSize="30sp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:shadowColor="#FFFF0000"-->
+<!--        android:shadowRadius="3.0"-->
+<!--        android:shadowDx="5.0"-->
+<!--        android:shadowDy="5.0"-->
+<!--        android:gravity="center"/>-->
+
+<!--    按钮-->
+<!--    <Button-->
+<!--        android:id="@+id/btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:background="@drawable/btn_selector"-->
+<!--        android:backgroundTint="@color/btn_color_selector"/>-->
+
+
+<!--    按钮点击，获取输入框内容-->
+<!--    <EditText-->
+<!--        android:id="@+id/user_name"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:hint="请输入用户名"-->
+<!--        android:textColorHint="#95a1aa"-->
+<!--        android:inputType="text"-->
+<!--        android:drawableLeft="@drawable/ic_baseline_person_24"-->
+<!--        android:drawablePadding="5dp"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        />-->
+
+<!--    <EditText-->
+
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:hint="请输入密码"-->
+<!--        android:textColorHint="#95a1aa"-->
+<!--        android:inputType="text"-->
+<!--        android:drawableLeft="@drawable/ic_baseline_vpn_key_24"-->
+<!--        android:drawablePadding="5dp"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="get"-->
+<!--        />-->
+
+
+    <!--图片复制到drawable中命名要以字母开头，否则报错-->
+<!--    <ImageView-->
+<!--        android:src="@drawable/pic"-->
+<!--        android:maxWidth="200dp"-->
+<!--        android:maxHeight="200dp"-->
+<!--        android:adjustViewBounds="true"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+
+<!--  ProgressBar圆圈加载进度条，此例用按钮显示和隐藏  -->
+    <ProgressBar
+        android:id="@+id/pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/btn"
+        android:text="显示/隐藏"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+<!-- 水平进度条  -->
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="10"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_load"
+        android:text="模拟下载"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
