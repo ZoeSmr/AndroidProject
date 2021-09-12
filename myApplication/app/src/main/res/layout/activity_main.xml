@@ -72,27 +72,37 @@
 
 
 <!--  ProgressBar圆圈加载进度条，此例用按钮显示和隐藏  -->
-    <ProgressBar
-        android:id="@+id/pb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-    <Button
-        android:id="@+id/btn"
-        android:text="显示/隐藏"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+<!--    <ProgressBar-->
+<!--        android:id="@+id/pb"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        />-->
+<!--    <Button-->
+<!--        android:id="@+id/btn"-->
+<!--        android:text="显示/隐藏"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
 
 <!-- 水平进度条  -->
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:max="10"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/btn_load"
-        android:text="模拟下载"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+<!--    <ProgressBar-->
+<!--        style="?android:attr/progressBarStyleHorizontal"-->
+<!--        android:max="10"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <Button-->
+<!--        android:id="@+id/btn_load"-->
+<!--        android:text="模拟下载"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+<!--    ListView-->
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+<!--    给item布局，在layout中创建布局文件-->
+<!--    因为每个item可能会有几个数据，所以会创建一个Java bean类-->
+
+
 
 </LinearLayout>
