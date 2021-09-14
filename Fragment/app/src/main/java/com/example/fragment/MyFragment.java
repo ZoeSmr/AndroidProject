@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 //1.创建一个自己的Fragment类，继承Fragment并重写部分方法
 //2.在activity_main中使用fragment标签，并给它添加name：包名
 //3.给自定义的fragment类设置layout
-//4.重写onCreateView，绑定关联的layout
+//4.重写onCreateView，绑定关联的layout（如果不需要UI，那就不重写）
 
 public class myFragment extends Fragment {
     @Nullable
@@ -31,3 +31,7 @@ public class myFragment extends Fragment {
 //2.在MainActivity的onCreate中使用java动态添加Fragment到activity中：FragmentManager & FragmentTransaction
 //3.通过FragmentTransaction的add方法来添加layout
 //4.最后使用FragmentTransaction的commit方法来提交事务
+
+//动态的替换和删除
+//1.在activity_main中作好布局后，依然用帧布局来占位
+//2.在MainActivity中绑定按钮
