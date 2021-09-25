@@ -41,8 +41,7 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:ellipsize="marquee"
             android:scrollHorizontally="true"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
+            >
 
         </TextView>
 

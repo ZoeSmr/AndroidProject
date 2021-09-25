@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String songName = (String) listView.getItemAtPosition(i);
-                Intent intent = new Intent(getApplicationContext(), PlayerActivity.class);
+                Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
                 intent.putExtra("songs", mySong);
                 intent.putExtra("songname", songName);
                 intent.putExtra("pos", i);
