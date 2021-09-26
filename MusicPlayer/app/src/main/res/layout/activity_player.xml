@@ -59,16 +59,15 @@
 
             <TextView
                 android:id="@+id/txt_start"
-                android:layout_toLeftOf="@+id/seekbar"
-                android:layout_centerInParent="true"
-                android:layout_alignParentLeft="false"
-                android:layout_marginLeft="20dp"
-                android:text="00:10"
-                android:textColor="#000"
-                android:textSize="14sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </TextView>
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="false"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toLeftOf="@+id/seekbar"
+                android:text="00:00"
+                android:textColor="#000"
+                android:textSize="14sp"></TextView>
 
             <TextView
                 android:id="@+id/txt_end"
@@ -76,7 +75,7 @@
                 android:layout_centerInParent="true"
                 android:layout_alignParentRight="false"
                 android:layout_marginRight="20dp"
-                android:text="04:10"
+                android:text="00:00"
                 android:textColor="#000"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
@@ -99,7 +98,9 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/ic_baseline_pause_24">
+                android:background="@drawable/ic_baseline_pause_24"
+                android:backgroundTint="#1a237e">
+
             </Button>
 
             <Button
@@ -108,7 +109,8 @@
                 android:layout_toRightOf="@+id/btn_play"
                 android:layout_marginTop="15dp"
                 android:layout_width="50dp"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:backgroundTint="#3949ab">
             </Button>
 
             <Button
@@ -117,20 +119,20 @@
                 android:layout_toLeftOf="@+id/btn_play"
                 android:layout_marginTop="15dp"
                 android:layout_width="50dp"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:backgroundTint="#3949ab">
             </Button>
 
-            <com.gauravk.audiovisualizer.visualizer.BarVisualizer
-                xmlns:custom="http://schemas.android.com/apk/res-auto"
+            <com.gauravk.audiovisualizer.visualizer.BarVisualizer xmlns:custom="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/bar"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_alignParentBottom="true"
+                custom:avColor="#311b92"
                 custom:avDensity="0.5"
+                custom:avSpeed="normal"
                 custom:avType="outline"
-                custom:avWidth="4dp"
-                custom:avColor="@color/av_dark_blue"
-                custom:avSpeed="normal"/>
+                custom:avWidth="4dp" />
 
         </RelativeLayout>
     </LinearLayout>

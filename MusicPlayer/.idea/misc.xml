@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/ic_baseline_music_note_24.xml" value="0.275" />
+        <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/ic_baseline_pause_24.xml" value="0.27076923076923076" />
         <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.25833333333333336" />
         <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/list_bg.xml" value="0.275" />
         <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/song_icon.xml" value="0.25833333333333336" />
