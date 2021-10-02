@@ -37,7 +37,7 @@
             style="@style/MyEditStyle"
             android:layout_width="match_parent"
             android:gravity="left"
-            android:layout_height="500dp"
+            android:layout_height="400dp"
             android:layout_marginTop="20dp" />
 
         <Button

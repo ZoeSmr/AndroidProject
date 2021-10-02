@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
@@ -35,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
         initEvent();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshDataFromDB();
+    }
+
+    private void refreshDataFromDB() {
+        mNotes = getDataFromDB();
+        mAdapter.refreshData(mNotes);
+    }
+
     private void initEvent() {
         mAdapter = new MyAdapter(this, mNotes);
         mRecyclerView.setAdapter(mAdapter);
@@ -45,24 +57,30 @@ public class MainActivity extends AppCompatActivity {
     private void initData() {
 
         mNotes = new ArrayList<>();
+        mNoteDBOpenHelper = new NoteDBOpenHelper(this);
 
-
-        for(int i = 0; i < 10; i++) {
+/*        for(int i = 0; i < 10; i++) {
             Note note = new Note();
             note.setTitle("title" + i);
             note.setContent("content" + i);
             note.setCreatedTime(getCurrentTimeFormat());
             mNotes.add(note);
-        }
+        }*/
+
+//        mNotes = getDataFromDB();
 
     }
 
-    private String getCurrentTimeFormat() {
+    private List<Note> getDataFromDB() {
+        return mNoteDBOpenHelper.queryAllFromDB();
+    }
+
+/*    private String getCurrentTimeFormat() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY年MM月dd HH:mm:ss");
         Date date = new Date();
         return simpleDateFormat.format(date);
 
-    }
+    }*/
 
     private void initView() {
         mRecyclerView = findViewById(R.id.rlv);
@@ -70,5 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void add(View view) {
+        Intent intent = new Intent(this, AddActivity.class);
+
+        startActivity(intent);
     }
 }

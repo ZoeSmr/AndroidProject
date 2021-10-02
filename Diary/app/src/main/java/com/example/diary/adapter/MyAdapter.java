@@ -1,5 +1,6 @@
 package com.example.diary.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -46,7 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.mTvContent.setText(note.getContent());
         holder.mTvTime.setText(note.getCreatedTime());
 
-        //click once
+        //short click
         holder.rlContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +62,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.rlContainer.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+
+                Dialog dialog = new Dialog(mContext);
+                View v = mLayoutInflater.inflate(R.layout.list_item_dialog_layout, null);
+                TextView tvDelete = v.findViewById(R.id.tv_delete);
+                TextView tvEdit = v.findViewById(R.id.tv_edit);
+
+                tvDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                dialog.setContentView(v);
+                dialog.show();
                 return false;
             }
         });
@@ -71,6 +86,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public int getItemCount() {
         return mBeanList.size();
     }
+
+    //everytime we add a new diary and back to the main page, we can see the new one, so the diary list should be refreshed
+    public void refreshData(List<Note> notes) {
+        this.mBeanList = notes;
+        notifyDataSetChanged();
+    }
+
+    public void deleteData()
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
