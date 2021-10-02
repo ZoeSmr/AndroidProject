@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/textView_land"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:height="5dp"
+            android:background="@null"
+            android:enabled="true"
+            android:gravity="center"
+            android:inputType="none"
+            android:text=""
+            android:textColor="@color/black"
+            android:textCursorDrawable="@null"
+            android:textIsSelectable="true"
+            android:textSize="50sp" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="7"
+            android:rowCount="5">
+
+            <Button
+                android:id="@+id/btn_left_kuo"
+                android:layout_width="104dp"
+
+                android:text="("
+                android:textColor="#000"
+                android:textSize="24sp" />
+            <Button
+                android:id="@+id/btn_right_kuo"
+                android:layout_width="104dp"
+
+                android:text=")"
+                android:textColor="#000"
+                android:textSize="24sp" />
+            <Button
+                android:id="@+id/btn_help"
+                android:layout_width="104dp"
+
+                android:text="help"
+                android:textColor="#000"
+                android:textSize="24sp" />
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="104dp"
+
+                android:text="C"
+                android:textColor="#000"
+                android:textSize="24sp" />
+            <Button
+                android:id="@+id/btn_div"
+                android:layout_width="104dp"
+
+                android:text="÷"
+                android:textColor="#000"
+                android:textSize="24sp" />
+            <Button
+                android:id="@+id/btn_mul"
+                android:layout_width="104dp"
+
+                android:text="×"
+                android:textColor="#000"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_del"
+                android:layout_width="104dp"
+
+                android:text="◁"
+                android:textColor="#000"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_sin"
+                android:layout_width="104dp"
+
+                android:text="sin"
+                android:textColor="#000"
+                android:textSize="24sp" />
+            <Button
+                android:id="@+id/btn_cos"
+                android:layout_width="104dp"
+
+                android:text="cos"
+                android:textColor="#000"
+                android:textSize="24sp" />
+            <Button
+                android:id="@+id/btn_tan"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:text="tan"
+                android:textColor="#000"
+                android:textSize="24sp"
+                android:layout_rowSpan="2"/>
+
+            <Button
+                android:id="@+id/btn_1"
+                android:layout_width="104dp"
+
+                android:text="1"
+                android:textColor="#88878b"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_2"
+                android:layout_width="104dp"
+
+                android:text="2"
+                android:textColor="#88878b"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_3"
+                android:layout_width="104dp"
+
+                android:text="3"
+                android:textColor="#88878b"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_sub"
+                android:layout_width="104dp"
+
+                android:text="-"
+                android:textColor="#000"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_ln"
+                android:layout_width="104dp"
+
+                android:text="ln"
+                android:textColor="#000"
+                android:textSize="24sp" />
+            <Button
+                android:id="@+id/btn_log"
+                android:layout_width="104dp"
+
+                android:text="log"
+                android:textColor="#000"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_4"
+                android:layout_width="104dp"
+
+                android:text="4"
+                android:textColor="#88878b"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_5"
+                android:layout_width="104dp"
+
+                android:text="5"
+                android:textColor="#88878b"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_6"
+                android:layout_width="104dp"
+
+                android:text="6"
+                android:textColor="#88878b"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="104dp"
+
+                android:text="+"
+                android:textColor="#000"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_factorial"
+                android:layout_width="104dp"
+
+                android:text="n!"
+                android:textColor="#000"
+                android:textSize="24sp" />
+            <Button
+                android:id="@+id/btn_sqrt"
+                android:layout_width="104dp"
+
+                android:text="√"
+                android:textColor="#000"
+                android:textSize="24sp" />
+            <Button
+                android:id="@+id/btn_square"
+                android:layout_width="104dp"
+
+                android:text="^"
+                android:textColor="#000"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_7"
+                android:layout_width="104dp"
+
+                android:text="7"
+                android:textColor="#88878b"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_8"
+                android:layout_width="104dp"
+
+                android:text="8"
+                android:textColor="#88878b"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_9"
+                android:layout_width="104dp"
+
+                android:text="9"
+                android:textColor="#88878b"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_equ"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:text="="
+                android:textColor="#000"
+                android:textSize="24sp"
+                android:layout_rowSpan="2"/>
+
+            <Button
+                android:id="@+id/btn_bi"
+                android:layout_width="104dp"
+
+                android:text="进制转换"
+                android:textColor="#000"
+                android:textSize="18sp" />
+            <Button
+                android:id="@+id/btn_length"
+                android:layout_width="104dp"
+
+                android:text="长度转换"
+                android:textColor="#000"
+                android:textSize="18sp" />
+            <Button
+                android:id="@+id/btn_vol"
+                android:layout_width="104dp"
+
+                android:text="体积转换"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_0"
+                android:layout_width="208dp"
+
+                android:text="0"
+                android:textColor="#88878b"
+                android:textSize="24sp"
+                android:layout_columnSpan="2"/>
+
+            <Button
+                android:id="@+id/btn_point"
+                android:layout_width="104dp"
+
+                android:text="."
+                android:textColor="#88878b"
+                android:textSize="24sp" />
+
+
+
+
+        </GridLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
