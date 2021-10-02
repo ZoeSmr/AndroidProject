@@ -155,6 +155,7 @@ public class PlayerActivity extends AppCompatActivity {
                 }
                 else {
                     btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
+
                     mediaPlayer.start();
                 }
             }
@@ -215,13 +216,10 @@ public class PlayerActivity extends AppCompatActivity {
 
     public void startAnimation(View view) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "rotation", 0f, 359f);
-        animator.setDuration(2000);
-        animator.setRepeatCount(ValueAnimator.INFINITE);
-        animator.setInterpolator(new LinearInterpolator());
-        animator.start();
-        /*AnimatorSet animatorSet = new AnimatorSet();
+        animator.setDuration(500);
+        AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(animator);
-        animatorSet.start();*/
+        animatorSet.start();
     }
 
     public String createTime(int duration) {
