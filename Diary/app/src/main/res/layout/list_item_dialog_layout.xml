@@ -11,11 +11,4 @@
         android:text="删除"
         style="@style/MyTextStyle"
         />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:id="@+id/tv_edit"
-        android:text="编辑"
-        style="@style/MyTextStyle"
-        />
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.diary.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -7,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.diary.EditActivity;
+import com.example.diary.NoteDBOpenHelper;
 import com.example.diary.R;
 import com.example.diary.bean.Note;
 
@@ -22,12 +25,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private List<Note> mBeanList;
     private LayoutInflater mLayoutInflater;
     private Context mContext;
+    private NoteDBOpenHelper mNoteDBOpenHelper;
 
     public MyAdapter(Context context, List<Note> mBeanList){
         this.mBeanList = mBeanList;
         this.mContext = context;
         mLayoutInflater = LayoutInflater.from(mContext);
-
+        mNoteDBOpenHelper = new NoteDBOpenHelper(mContext);
     }
 
     @NonNull
@@ -40,7 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         Note note = mBeanList.get(position);
         holder.mTvTitle.setText(note.getTitle());
@@ -63,17 +67,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             @Override
             public boolean onLongClick(View view) {
 
-                Dialog dialog = new Dialog(mContext);
+                Dialog dialog = new Dialog(mContext, android.R.style.ThemeOverlay_Material_Dialog_Alert);
                 View v = mLayoutInflater.inflate(R.layout.list_item_dialog_layout, null);
                 TextView tvDelete = v.findViewById(R.id.tv_delete);
-                TextView tvEdit = v.findViewById(R.id.tv_edit);
 
                 tvDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        int row = mNoteDBOpenHelper.deleteBtId(note.getId());
+                        if(row > 0) {
+                            deleteData(position);
+                            Toast.makeText(mContext, "delete successfully", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(mContext, "delete unsuccessfully", Toast.LENGTH_SHORT).show();
+                        }
+                        dialog.dismiss();
                     }
                 });
+
                 dialog.setContentView(v);
                 dialog.show();
                 return false;
@@ -93,7 +105,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         notifyDataSetChanged();
     }
 
-    public void deleteData()
+    public void deleteData(int position) {
+        mBeanList.remove(position);
+        notifyItemRemoved(position);
+    }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
 
 import com.example.diary.bean.Note;
 
@@ -68,6 +69,34 @@ public class NoteDBOpenHelper extends SQLiteOpenHelper {
         return noteList;
     }
 
+    public List<Note> queryByTitle(String title) {
+        if(TextUtils.isEmpty(title)) {
+            return queryAllFromDB();
+        }
+
+        SQLiteDatabase db = getWritableDatabase();
+        List<Note> noteList = new ArrayList<>();
+        Cursor cursor = db.query(TABLE_NAME_NOTE, null, "title like ?", new String[]{"%"+title+"%"}, null, null, null);
+        if (cursor != null) {
+
+            while (cursor.moveToNext()) {
+                @SuppressLint("Range") String id = cursor.getString(cursor.getColumnIndex("id"));
+                @SuppressLint("Range") String title2 = cursor.getString(cursor.getColumnIndex("title"));
+                @SuppressLint("Range") String content = cursor.getString(cursor.getColumnIndex("content"));
+                @SuppressLint("Range") String createTime = cursor.getString(cursor.getColumnIndex("create_time"));
+
+                Note note = new Note();
+                note.setId(id);
+                note.setTitle(title2);
+                note.setContent(content);
+                note.setCreatedTime(createTime);
+                noteList.add(note);
+            }
+            cursor.close();
+        }
+        return noteList;
+    }
+
     public int updateData(Note note) {
         SQLiteDatabase db = getWritableDatabase();
 
@@ -77,5 +106,10 @@ public class NoteDBOpenHelper extends SQLiteOpenHelper {
         values.put("create_time", note.getCreatedTime());
 
         return db.update(TABLE_NAME_NOTE, values, "id = ?", new String[]{note.getId()});
+    }
+
+    public int deleteBtId(String id) {
+        SQLiteDatabase db = getWritableDatabase();
+        return db.delete(TABLE_NAME_NOTE, "id = ?", new String[]{id});
     }
 }
