@@ -17,7 +17,8 @@ public class NoteDBOpenHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "noteSQLite.db";
     private static final String TABLE_NAME_NOTE = "note";
-    private static final String CREATE_TABLE_SQL = "create table " + TABLE_NAME_NOTE + " (id integer primary key autoincrement, title text, content text, create_time text)";
+    private static final String CREATE_TABLE_SQL = "create table " + TABLE_NAME_NOTE +
+            " (id integer primary key autoincrement, title text, content text, create_time text)";
 
     public NoteDBOpenHelper(Context context) {
         super(context, DB_NAME, null, 1);
