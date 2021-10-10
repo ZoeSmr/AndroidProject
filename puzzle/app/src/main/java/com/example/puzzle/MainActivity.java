@@ -1,33 +1,57 @@
 package com.example.puzzle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.example.puzzle.view.GameView;
+import com.example.puzzle.view.OnFinishListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int screenWidth, screenHeight;
+    private GameView gameView;
+    int level = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        requestWindowFeature(1);
-        getWindow().setFlags(1024, 1024);
-        DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-        screenWidth = metrics.widthPixels;
-        screenHeight = metrics.heightPixels;
-
         setContentView(R.layout.activity_main);
+
+        gameView = (GameView) this.findViewById(R.id.game_view);
+        gameView.setOnFinishListener(new OnFinishListener() {
+            @Override
+            public void onFinish() {
+                Toast.makeText(MainActivity.this, "恭喜你完成拼图", Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
-    public static int getScreenWidth() {
-        return screenWidth;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
-    public static int getScreenHeight() {
-        return screenHeight;
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.level_1) {
+            level = 3;
+            gameView.setLevel(level);
+        } else if (id == R.id.level_2) {
+            level = 4;
+            gameView.setLevel(level);
+        } else if (id == R.id.level_3) {
+            level = 5;
+            gameView.setLevel(level);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
