@@ -3,13 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/drawable/btn_1.xml" value="0.275" />
         <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/drawable/change_btn.xml" value="0.275" />
         <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/drawable/change_btn_pressed.xml" value="0.275" />
+        <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/drawable/jinzhi.xml" value="0.275" />
         <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/drawable/keyboard.xml" value="0.275" />
         <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/drawable/keyboard_equal_pressed.xml" value="0.275" />
         <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/drawable/keyboard_normal.xml" value="0.275" />
         <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/drawable/keyboard_pressed.xml" value="0.275" />
+        <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/layout/activity_conversion_system.xml" value="0.25885416666666666" />
         <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/layout/activity_main.xml" value="0.24427083333333333" />
+        <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/layout/activity_unit_conversion.xml" value="0.24427083333333333" />
         <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/layout/keyboard.xml" value="0.25885416666666666" />
         <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/layout/keyboard2.xml" value="0.25885416666666666" />
         <entry key="..\:/AndroidProject/SCalcultor/app/src/main/res/menu/main.xml" value="0.25885416666666666" />

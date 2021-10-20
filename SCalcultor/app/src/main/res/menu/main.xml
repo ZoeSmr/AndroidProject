@@ -13,4 +13,8 @@
         android:id="@+id/change"
         android:title="进制转换">
     </item>
+    <item
+        android:id="@+id/converse"
+        android:title="单位转换">
+    </item>
 </menu>

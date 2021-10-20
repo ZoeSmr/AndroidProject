@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -344,7 +345,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(last_equal) return;//如果上次还是按的等号，那么什么也不做
 
-                //小小的动画效果
+
                 AnimationSet animSet = new AnimationSet(true);
                 TranslateAnimation ta = new TranslateAnimation(0,0,0,-100);
                 ta.setDuration(80);
@@ -360,7 +361,6 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        //动画结束之后计算
                         text1.setText(expression + "=");
                         text1.setSelection(expression.length()+1);//在第一行显示计算表达式
                         try{
@@ -451,6 +451,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.exit:
                 android.os.Process.killProcess(android.os.Process.myPid());
                 System.exit(0);
+                break;
+            case R.id.change:
+                Intent intent = new Intent(this, ConversionSystem.class);
+                startActivity(intent);
+                break;
+            case R.id.converse:
+                Intent intent1 = new Intent(this, UnitConversion.class);
+                startActivity(intent1);
                 break;
         }
 
