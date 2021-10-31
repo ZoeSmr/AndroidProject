@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -24,10 +25,12 @@ import com.gauravk.audiovisualizer.visualizer.BarVisualizer;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PlayerActivity extends AppCompatActivity {
 
     Button btn_play, btn_next, btn_prev;
+    RadioButton rbtn_random, rbtn_single, rbtn_seq;
     TextView txt_songName, txt_start, txt_end;
     SeekBar seekMusic;
     BarVisualizer visualizer;
@@ -72,6 +75,9 @@ public class PlayerActivity extends AppCompatActivity {
         seekMusic = findViewById(R.id.seekbar);
         visualizer = findViewById(R.id.bar);
         imageView = findViewById(R.id.imageview);
+        rbtn_single = findViewById(R.id.single);
+        rbtn_seq = findViewById(R.id.seq);
+        rbtn_random = findViewById(R.id.random);
 
         if(mediaPlayer != null) {
             mediaPlayer.stop();
@@ -178,18 +184,17 @@ public class PlayerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer.stop();
                 mediaPlayer.release();
-                pos = ((pos+1)%mySong.size());
-                Uri uri1 = Uri.parse(mySong.get(pos).toString());
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), uri1);
-                song_name = mySong.get(pos).getName();
-                txt_songName.setText(song_name);
-                mediaPlayer.start();
-                btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
-                startAnimation(imageView);
-                int audiosessionId = mediaPlayer.getAudioSessionId();
-                if(audiosessionId != -1) {
-                    visualizer.setAudioSessionId(audiosessionId);
+
+                if(rbtn_single.isChecked()) {
+                    single();
                 }
+                else if(rbtn_seq.isChecked()) {
+                    sequence();
+                }
+                else if(rbtn_random.isChecked()) {
+                    random();
+                }
+
             }
         });
 
@@ -198,20 +203,61 @@ public class PlayerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer.stop();
                 mediaPlayer.release();
-                pos = ((pos-1)<0)?(mySong.size()-1):(pos-1);
-                Uri uri1 = Uri.parse(mySong.get(pos).toString());
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), uri1);
-                song_name = mySong.get(pos).getName();
-                txt_songName.setText(song_name);
-                mediaPlayer.start();
-                btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
-                startAnimation(imageView);
-                int audiosessionId = mediaPlayer.getAudioSessionId();
-                if(audiosessionId != -1) {
-                    visualizer.setAudioSessionId(audiosessionId);
+                if(rbtn_single.isChecked()) {
+                    single();
+                }
+                else if(rbtn_seq.isChecked()) {
+                    sequence();
+                }
+                else if(rbtn_random.isChecked()) {
+                    random();
                 }
             }
         });
+    }
+
+    public void single() {
+        Uri uri1 = Uri.parse(mySong.get(pos).toString());
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), uri1);
+        song_name = mySong.get(pos).getName();
+        txt_songName.setText(song_name);
+        mediaPlayer.start();
+        btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
+        startAnimation(imageView);
+        int audiosessionId = mediaPlayer.getAudioSessionId();
+        if(audiosessionId != -1) {
+            visualizer.setAudioSessionId(audiosessionId);
+        }
+    }
+
+    public void sequence() {
+        pos = ((pos+1)%mySong.size());
+        Uri uri1 = Uri.parse(mySong.get(pos).toString());
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), uri1);
+        song_name = mySong.get(pos).getName();
+        txt_songName.setText(song_name);
+        mediaPlayer.start();
+        btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
+        startAnimation(imageView);
+        int audiosessionId = mediaPlayer.getAudioSessionId();
+        if(audiosessionId != -1) {
+            visualizer.setAudioSessionId(audiosessionId);
+        }
+    }
+
+    public void random() {
+        pos = new Random().nextInt(mySong.size());
+        Uri uri1 = Uri.parse(mySong.get(pos).toString());
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), uri1);
+        song_name = mySong.get(pos).getName();
+        txt_songName.setText(song_name);
+        mediaPlayer.start();
+        btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
+        startAnimation(imageView);
+        int audiosessionId = mediaPlayer.getAudioSessionId();
+        if(audiosessionId != -1) {
+            visualizer.setAudioSessionId(audiosessionId);
+        }
     }
 
     public void startAnimation(View view) {

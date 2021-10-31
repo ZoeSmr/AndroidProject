@@ -123,6 +123,37 @@
                 android:backgroundTint="#3949ab">
             </Button>
 
+            <RadioGroup
+                android:id="@+id/play_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="292dp">
+
+                <RadioButton
+                    android:id="@+id/single"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/repeat_one"
+                    android:backgroundTint="#3949ab"
+                    android:button="@null" />
+                <RadioButton
+                    android:id="@+id/seq"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/repeat"
+                    android:backgroundTint="#3949ab"
+                    android:button="@null"/>
+                <RadioButton
+                    android:id="@+id/random"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/random"
+                    android:backgroundTint="#3949ab"
+                    android:button="@null"/>
+            </RadioGroup>
+
             <com.gauravk.audiovisualizer.visualizer.BarVisualizer xmlns:custom="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/bar"
                 android:layout_width="match_parent"

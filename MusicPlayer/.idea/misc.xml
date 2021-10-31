@@ -6,7 +6,15 @@
         <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/ic_baseline_music_note_24.xml" value="0.275" />
         <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/ic_baseline_pause_24.xml" value="0.27076923076923076" />
         <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.25833333333333336" />
+        <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/ic_baseline_skip_previous_24.xml" value="0.275" />
         <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/list_bg.xml" value="0.275" />
+        <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/playrandom.xml" value="0.275" />
+        <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/playsequence.xml" value="0.275" />
+        <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/playsingle.xml" value="0.275" />
+        <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/random.xml" value="0.275" />
+        <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/repeat_one.xml" value="0.275" />
+        <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/sequence.xml" value="0.275" />
+        <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/single.xml" value="0.275" />
         <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/drawable/song_icon.xml" value="0.25833333333333336" />
         <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/layout/activity_main.xml" value="0.25885416666666666" />
         <entry key="..\:/AndroidProject/MusicPlayer/app/src/main/res/layout/activity_player.xml" value="0.25885416666666666" />
