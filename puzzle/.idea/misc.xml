@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/puzzle/app/src/main/res/drawable/ic_launcher_background.xml" value="0.275" />
         <entry key="..\:/AndroidProject/puzzle/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/AndroidProject/puzzle/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/puzzle/app/src/main/res/menu/menu.xml" value="0.25885416666666666" />
       </map>
     </option>
   </component>

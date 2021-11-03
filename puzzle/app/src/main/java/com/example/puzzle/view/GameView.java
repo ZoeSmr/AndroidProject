@@ -24,13 +24,13 @@ public class GameView extends View {
     private Context myContext;
     private Resources myResources;
     private Bitmap myBitmap;
-    private int bitmapH;
-    private int bitmapW;
+    private int bitmapH;//一片图片的高度
+    private int bitmapW;//一片图片的宽度
     private int viewH;//view的高度
     private int viewW;//view的宽度
     private int canvasH;//一格画布的高度
     private int canvasW;//一格画布的宽度
-    private int level = 3;
+    private int level = 3;//默认分3层 3*3
     private int padding = 3;
     private ArrayList<Patch> patches;
     private Random random = new Random();
@@ -62,11 +62,6 @@ public class GameView extends View {
         invalidate();
     }
 
-    //设置图片
-    public void setMyBitmap(Bitmap bitmap) {
-        this.myBitmap = bitmap;
-        invalidate();
-    }
 
     public void setOnFinishListener(OnFinishListener listener){
         this.listener = listener;
@@ -79,14 +74,8 @@ public class GameView extends View {
         int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
         if(heightSpecMode == MeasureSpec.AT_MOST){
-            setMeasuredDimension(widthSpecSize,widthSpecSize);
+            setMeasuredDimension(widthSpecSize,widthSpecSize);//默认设置正方形
         }
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        drawAllPic(patches, canvas);
     }
 
     @Override
@@ -98,10 +87,16 @@ public class GameView extends View {
         canvasH = h / level;
     }
 
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        drawAllPic(patches, canvas);
+    }
+
     private void drawAllPic(ArrayList<Patch> patches, Canvas canvas) {
         int size = patches.size();
         for(int i = 0; i < size; i++) {
-            drawPic(canvas,patches.get(i));
+            drawPic(canvas,patches.get(i)); //把每一小块画出来
         }
     }
 
@@ -146,6 +141,7 @@ public class GameView extends View {
         }
     }
 
+    //随机生成一个挨着空图片的位置坐标，根据这个坐标找到对应的图片，将空图和其切换
     private Patch exchange(Patch emptyPatch) {
         int randomType = random.nextInt(4);
         Point cpoint = new Point();
@@ -233,6 +229,7 @@ public class GameView extends View {
         checkMove(clickPoint);
     }
 
+    //检查是否能移动，能则动
     private void checkMove(Point clickPoint) {
         Patch clickPatch = findPatch(clickPoint);
         Patch emptyPatch = findEmptyPatch();
@@ -263,27 +260,29 @@ public class GameView extends View {
         return flag;
     }
 
+    //是否是挨着的两个图
     private boolean isNeighbor(Patch clickPatch, Patch emptyPatch) {
         Point nearPoint = new Point();
         nearPoint.setX(clickPatch.getCanvasPoint().getX()+1);
         nearPoint.setY(clickPatch.getCanvasPoint().getY());
-        if(emptyPatch.getCanvasPoint().equals(nearPoint)) return true;
+        if(emptyPatch.getCanvasPoint().equals(nearPoint)) return true; //在空白图左边
 
         nearPoint.setX(clickPatch.getCanvasPoint().getX()-1);
         nearPoint.setY(clickPatch.getCanvasPoint().getY());
-        if(emptyPatch.getCanvasPoint().equals(nearPoint)) return true;
+        if(emptyPatch.getCanvasPoint().equals(nearPoint)) return true; //右
 
         nearPoint.setX(clickPatch.getCanvasPoint().getX());
         nearPoint.setY(clickPatch.getCanvasPoint().getY()+1);
-        if(emptyPatch.getCanvasPoint().equals(nearPoint)) return true;
+        if(emptyPatch.getCanvasPoint().equals(nearPoint)) return true; //上
 
         nearPoint.setX(clickPatch.getCanvasPoint().getX());
         nearPoint.setY(clickPatch.getCanvasPoint().getY()-1);
-        if(emptyPatch.getCanvasPoint().equals(nearPoint)) return true;
+        if(emptyPatch.getCanvasPoint().equals(nearPoint)) return true; //下
 
         return false;
     }
 
+    //查找空图片
     private Patch findEmptyPatch() {
         Patch patch = null;
         int size = patches.size();
@@ -295,5 +294,9 @@ public class GameView extends View {
             }
         }
         return patch;
+    }
+
+    public interface OnFinishListener{
+        public void onFinish();
     }
 }

@@ -2,16 +2,13 @@ package com.example.puzzle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.puzzle.view.GameView;
-import com.example.puzzle.view.OnFinishListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         gameView = (GameView) this.findViewById(R.id.game_view);
-        gameView.setOnFinishListener(new OnFinishListener() {
+        gameView.setOnFinishListener(new GameView.OnFinishListener() {
             @Override
             public void onFinish() {
-                Toast.makeText(MainActivity.this, "恭喜你完成拼图", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "恭喜你完成拼图！", Toast.LENGTH_LONG).show();
             }
         });
 
