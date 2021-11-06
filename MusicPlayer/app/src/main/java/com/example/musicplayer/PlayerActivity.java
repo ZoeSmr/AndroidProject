@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gauravk.audiovisualizer.visualizer.BarVisualizer;
 
@@ -161,7 +162,6 @@ public class PlayerActivity extends AppCompatActivity {
                 }
                 else {
                     btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
-
                     mediaPlayer.start();
                 }
             }
@@ -223,6 +223,7 @@ public class PlayerActivity extends AppCompatActivity {
         txt_songName.setText(song_name);
         mediaPlayer.start();
         btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
+        Toast.makeText(PlayerActivity.this, "单曲循环", Toast.LENGTH_SHORT).show();
         startAnimation(imageView);
         int audiosessionId = mediaPlayer.getAudioSessionId();
         if(audiosessionId != -1) {
@@ -238,6 +239,7 @@ public class PlayerActivity extends AppCompatActivity {
         txt_songName.setText(song_name);
         mediaPlayer.start();
         btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
+        Toast.makeText(PlayerActivity.this, "顺序播放", Toast.LENGTH_SHORT).show();
         startAnimation(imageView);
         int audiosessionId = mediaPlayer.getAudioSessionId();
         if(audiosessionId != -1) {
@@ -253,6 +255,7 @@ public class PlayerActivity extends AppCompatActivity {
         txt_songName.setText(song_name);
         mediaPlayer.start();
         btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
+        Toast.makeText(PlayerActivity.this, "随机播放", Toast.LENGTH_SHORT).show();
         startAnimation(imageView);
         int audiosessionId = mediaPlayer.getAudioSessionId();
         if(audiosessionId != -1) {
