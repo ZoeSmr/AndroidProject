@@ -103,8 +103,10 @@ public class Calculate {
                             switch (symbolStack.peek()) {
                                 case 'n':
                                     d = Math.log(Double.parseDouble(s));
+                                    break;
                                 case 'g':
                                     d = Math.log10(Double.parseDouble(s));
+                                    break;
                                     //Log.e("zoe", String.valueOf(d));
                             }
                             BigDecimal bigDecimal = new BigDecimal(d);

@@ -194,6 +194,20 @@ public class PlayerActivity extends AppCompatActivity {
                 else if(rbtn_random.isChecked()) {
                     random();
                 }
+                else {
+                    pos = ((pos+1)%mySong.size());
+                    Uri uri1 = Uri.parse(mySong.get(pos).toString());
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), uri1);
+                    song_name = mySong.get(pos).getName();
+                    txt_songName.setText(song_name);
+                    mediaPlayer.start();
+                    btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
+                    startAnimation(imageView);
+                    int audiosessionId = mediaPlayer.getAudioSessionId();
+                    if(audiosessionId != -1) {
+                        visualizer.setAudioSessionId(audiosessionId);
+                    }
+                }
 
             }
         });
@@ -207,10 +221,36 @@ public class PlayerActivity extends AppCompatActivity {
                     single();
                 }
                 else if(rbtn_seq.isChecked()) {
-                    sequence();
+                    pos = ((pos-1)<0)?(mySong.size()-1):(pos-1);
+                    Uri uri1 = Uri.parse(mySong.get(pos).toString());
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), uri1);
+                    song_name = mySong.get(pos).getName();
+                    txt_songName.setText(song_name);
+                    mediaPlayer.start();
+                    btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
+                    Toast.makeText(PlayerActivity.this, "顺序播放", Toast.LENGTH_SHORT).show();
+                    startAnimation(imageView);
+                    int audiosessionId = mediaPlayer.getAudioSessionId();
+                    if(audiosessionId != -1) {
+                        visualizer.setAudioSessionId(audiosessionId);
+                    }
                 }
                 else if(rbtn_random.isChecked()) {
                     random();
+                }
+                else {
+                    pos = ((pos-1)<0)?(mySong.size()-1):(pos-1);
+                    Uri uri1 = Uri.parse(mySong.get(pos).toString());
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), uri1);
+                    song_name = mySong.get(pos).getName();
+                    txt_songName.setText(song_name);
+                    mediaPlayer.start();
+                    btn_play.setBackgroundResource(R.drawable.ic_baseline_pause_24);
+                    startAnimation(imageView);
+                    int audiosessionId = mediaPlayer.getAudioSessionId();
+                    if(audiosessionId != -1) {
+                        visualizer.setAudioSessionId(audiosessionId);
+                    }
                 }
             }
         });

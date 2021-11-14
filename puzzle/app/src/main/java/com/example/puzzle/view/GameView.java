@@ -32,7 +32,7 @@ public class GameView extends View {
     private int canvasW;//一格画布的宽度
     private int level = 3;//默认分3层 3*3
     private int padding = 3;
-    private ArrayList<Patch> patches;
+    private ArrayList<Patch> patches; //正确的图的顺序排列
     private Random random = new Random();
     private OnFinishListener listener;
 
